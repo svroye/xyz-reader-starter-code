@@ -7,6 +7,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.content.Loader;
+import android.content.res.Configuration;
 import android.database.Cursor;
 import android.os.Bundle;
 import android.support.v4.widget.SwipeRefreshLayout;
@@ -118,7 +119,12 @@ public class ArticleListActivity extends ActionBarActivity implements
         adapter.setHasStableIds(true);
         mRecyclerView.setAdapter(adapter);
         //int columnCount = getResources().getInteger(R.integer.list_column_count;
-        int columnCount = 1;
+        int columnCount = 0;
+        if (getResources().getConfiguration().orientation == Configuration.ORIENTATION_PORTRAIT){
+            columnCount = 1;
+        } else {
+            columnCount = 2;
+        }
         StaggeredGridLayoutManager sglm =
                 new StaggeredGridLayoutManager(columnCount, StaggeredGridLayoutManager.VERTICAL);
         mRecyclerView.setLayoutManager(sglm);
