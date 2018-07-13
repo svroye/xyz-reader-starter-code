@@ -6,6 +6,7 @@
     android:layout_width="match_parent">
 
     <android.support.design.widget.AppBarLayout
+        android:elevation="4dp"
         android:id="@+id/AppBarLayout"
         android:layout_width="match_parent"
         android:layout_height="300dp"
